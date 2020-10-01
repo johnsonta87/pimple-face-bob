@@ -9,11 +9,7 @@ export default function Foods(props) {
     <div className="foods-container">
 
       <div className="beer-glass">
-        <div className="glass">
-          <div className="bump"></div>
-          <div className="bump"></div>
-          <div className="bump"></div>
-        </div>
+        <div className="glass"></div>
         {drinkAmount ?
           <React.Fragment>
             <div className="beer" style={{ height: drinkAmount + 'px' }}>

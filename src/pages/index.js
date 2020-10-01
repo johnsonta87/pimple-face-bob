@@ -31,9 +31,7 @@ const App = () => {
         <Typography variant="h2" component="h2" gutterBottom>Hi people, I'm Bob!</Typography>
         <Typography variant="body1" gutterBottom>Help keep my face clear!</Typography>
       </div>
-      {loading ? <Loading /> :
-        <Start />
-      }
+      {loading ? <Loading /> : <Start />}
     </Layout>
   )
 }
