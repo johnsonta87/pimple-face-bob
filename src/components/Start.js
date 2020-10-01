@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import Face from './Face';
 import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
-import { RandomizePos, RandomizeSize } from '../utils/helpers';
+import { RandomizePos } from '../utils/helpers';
 import Foods from './Foods';
 
 const useStyles = makeStyles((theme) => ({
@@ -18,6 +18,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+
 export default function Start() {
   const classes = useStyles();
   const [mood, setMood] = useState(100);
@@ -28,8 +29,8 @@ export default function Start() {
   const handlechocolate = () => {
     // add new pimple objects to PimplesList
     setPimpleCount(
-      PimplesList => [
-        ...PimplesList,
+      pimple => [
+        ...pimple,
         {
           id: pimple.length + 1,
           top: RandomizePos(),
@@ -47,8 +48,8 @@ export default function Start() {
   const handleSoda = () => {
     // add new pimple objects to PimplesList
     setPimpleCount(
-      PimplesList => [
-        ...PimplesList,
+      pimple => [
+        ...pimple,
         {
           id: pimple.length + 1,
           top: RandomizePos(),
@@ -65,7 +66,7 @@ export default function Start() {
   }
 
   const handleLaser = id => {
-    setPimpleCount(PimplesList.filter(item => item.id !== id));
+    setPimpleCount(pimple.filter(item => item.id !== id));
     setMood(100);
   }
 
