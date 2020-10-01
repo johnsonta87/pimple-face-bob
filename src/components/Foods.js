@@ -4,15 +4,9 @@ import './Foods.scss';
 
 export default function Foods(props) {
   const drinkAmount = props.drinks;
-  const chocolate = props.foods && props.foods.map(index => (
-    <div key={index} className="piece"></div>
-  ));
 
   return (
     <div className="foods-container">
-      <div className="chocolate">
-        {chocolate}
-      </div>
 
       <div className="beer-glass">
         <div className="glass">

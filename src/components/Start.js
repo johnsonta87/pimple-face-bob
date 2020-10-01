@@ -19,13 +19,11 @@ const useStyles = makeStyles((theme) => ({
 
 // start with no pimples
 const PimplesList = [];
-const FoodsList = [1, 2, 3, 4, 5, 6];
 
 export default function Start() {
   const classes = useStyles();
   const [mood, setMood] = useState(100);
   const [pimple, setPimpleCount] = useState(PimplesList);
-  const [foods, setFoods] = useState(FoodsList);
   const [drinks, setDrinks] = useState(100);
 
   const handleEatJunk = () => {
@@ -44,11 +42,6 @@ export default function Start() {
 
     // lower mood
     mood > 0 && setMood(mood - 10);
-
-    // handle foods being eaten
-    setFoods(
-      ...FoodsList.splice(-1, 1)
-    );
   }
 
   const handleDrinkSoda = () => {
@@ -76,9 +69,6 @@ export default function Start() {
     setPimpleCount(PimplesList.filter(item => item.id !== id));
     setMood(100);
 
-    setFoods(...FoodsList, ...[1, 2, 3]);
-
-    console.log(foods);
     setDrinks(100);
   }
 
@@ -87,15 +77,11 @@ export default function Start() {
       <Face mood={mood} pimples={pimple} />
       <Foods
         pimples={pimple}
-        foods={FoodsList}
         drinks={drinks}
       />
 
       <div className={classes.root}>
         <Button variant="contained" color="primary" onClick={handleLaser}>Laser treatment and restock</Button>
-        {FoodsList.length > 0 ?
-          <Button variant="contained" color="secondary" onClick={handleEatJunk}>Eat Pimple Choco</Button>
-          : ''}
 
         {drinks > 0 ?
           <Button variant="contained" color="secondary" onClick={handleDrinkSoda}>Drink Pimple Soda</Button>
