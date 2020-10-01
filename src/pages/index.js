@@ -25,17 +25,14 @@ const App = () => {
 
   return (
     <Layout>
-      <SEO title="Home" />
+      <SEO title="I love soda!" />
 
+      <div className={classes.root}>
+        <Typography variant="h2" component="h2" gutterBottom>Hi people, I'm Bob!</Typography>
+        <Typography variant="body1" gutterBottom>Help keep my face clear!</Typography>
+      </div>
       {loading ? <Loading /> :
-        <React.Fragment>
-          <div className={classes.root}>
-            <Typography variant="h2" component="h2" gutterBottom>Hi people, I'm Bob!</Typography>
-            <Typography variant="body1" gutterBottom>Help keep my face clear!</Typography>
-          </div>
-
-          <Start />
-        </React.Fragment>
+        <Start />
       }
     </Layout>
   )
