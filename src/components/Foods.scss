@@ -43,6 +43,10 @@
     -moz-transform: rotate(-45deg);
     -ms-transform: rotate(-45deg);
     -o-transform: rotate(-45deg);
+
+    @media (max-width: 520px) {
+      left: 0;
+    }
   }
 }
 
@@ -60,6 +64,10 @@
     -moz-transform: rotate(-45deg);
     -ms-transform: rotate(-45deg);
     -o-transform: rotate(-45deg);
+
+    @media (max-width: 520px) {
+      right: 0;
+    }
   }
 
   .soda {
