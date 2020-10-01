@@ -79,7 +79,7 @@ export default function Start() {
       <div className={classes.root}>
 
         {chocolate.length > 0
-          ? <Button variant="contained" color="secondary" onClick={handlechocolate}>Eat chocolate</Button>
+          ? <Button variant="contained" color="secondary" onClick={handlechocolate}>Eat zit bar</Button>
           : <Button variant="contained" color="primary" onClick={() => setChocolate(...chocolate, [1, 2, 3, 4, 5, 6])}>Restock</Button>
         }
 
