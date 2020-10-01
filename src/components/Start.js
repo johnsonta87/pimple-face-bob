@@ -81,11 +81,12 @@ export default function Start() {
       />
 
       <div className={classes.root}>
-        <Button variant="contained" color="primary" onClick={handleLaser}>Laser treatment and restock</Button>
-
         {drinks > 0 ?
           <Button variant="contained" color="secondary" onClick={handleDrinkSoda}>Drink Pimple Soda</Button>
           : ''}
+
+        <Button variant="contained" color="primary" onClick={handleLaser}>Laser treatment and restock</Button>
+
       </div>
     </div>
   )
