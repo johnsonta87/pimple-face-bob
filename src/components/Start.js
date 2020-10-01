@@ -18,13 +18,10 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-// start with no pimples
-const PimplesList = [];
-
 export default function Start() {
   const classes = useStyles();
   const [mood, setMood] = useState(100);
-  const [pimple, setPimpleCount] = useState(PimplesList);
+  const [pimple, setPimpleCount] = useState([]);
   const [chocolate, setChocolate] = useState([1, 2, 3, 4, 5, 6]);
   const [soda, setSoda] = useState(100);
 
@@ -37,7 +34,6 @@ export default function Start() {
           id: pimple.length + 1,
           top: RandomizePos(),
           left: RandomizePos(),
-          size: RandomizeSize()
         }
       ]
     );
@@ -57,7 +53,6 @@ export default function Start() {
           id: pimple.length + 1,
           top: RandomizePos(),
           left: RandomizePos(),
-          size: RandomizeSize()
         }
       ]
     );
