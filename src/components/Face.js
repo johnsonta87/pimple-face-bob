@@ -10,7 +10,7 @@ const useStyles = makeStyles(() => ({
     height: '300px',
     borderRadius: '50%',
     backgroundColor: '#FBD671',
-    boxShadow: 'inset -10px -10px 0px darken(#FFD700, 20%)',
+    boxShadow: '-10px 10px 10px 0 rgba(0, 0, 0, 0.2)',
     margin: '0 auto',
   },
 }));
@@ -40,6 +40,8 @@ export default function Face(props) {
       <div className="pimples">
         {pimples}
       </div>
+
+
     </div>
   )
 }
