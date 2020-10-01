@@ -12,7 +12,7 @@ const useStyles = makeStyles((theme) => ({
     textAlign: 'center',
     '& > *': {
       width: '100%',
-      maxWidth: '200px',
+      maxWidth: '400px',
       margin: theme.spacing(1),
     },
   },
@@ -25,9 +25,30 @@ export default function Start() {
   const classes = useStyles();
   const [mood, setMood] = useState(100);
   const [pimple, setPimpleCount] = useState(PimplesList);
-  const [drinks, setDrinks] = useState(100);
+  const [chocolate, setChocolate] = useState([1, 2, 3, 4, 5, 6]);
+  const [soda, setSoda] = useState(100);
 
-  const handleDrinkSoda = () => {
+  const handlechocolate = () => {
+    // add new pimple objects to PimplesList
+    setPimpleCount(
+      PimplesList => [
+        ...PimplesList,
+        {
+          id: pimple.length + 1,
+          top: RandomizePos(),
+          left: RandomizePos(),
+          size: RandomizeSize()
+        }
+      ]
+    );
+
+    // lower mood
+    mood > 0 && setMood(mood - 10);
+
+    setChocolate(chocolate.splice(1));
+  }
+
+  const handleSoda = () => {
     // add new pimple objects to PimplesList
     setPimpleCount(
       PimplesList => [
@@ -45,30 +66,39 @@ export default function Start() {
     mood > 0 && setMood(mood - 10);
 
     // handle foods being eaten
-    setDrinks(drinks - 10);
+    setSoda(soda - 10);
   }
 
   const handleLaser = id => {
     setPimpleCount(PimplesList.filter(item => item.id !== id));
     setMood(100);
-
-    setDrinks(100);
   }
 
   return (
     <div>
       <div className={classes.root}>
-        {drinks > 0 ?
-          <Button variant="contained" color="secondary" onClick={handleDrinkSoda}>Drink Pimple Soda</Button>
-          :
-          <Button variant="contained" color="primary" onClick={handleLaser}>Laser treatment and refill</Button>
+
+        {chocolate.length > 0
+          ? <Button variant="contained" color="secondary" onClick={handlechocolate}>Eat chocolate</Button>
+          : <Button variant="contained" color="primary" onClick={() => setChocolate(...chocolate, [1, 2, 3, 4, 5, 6])}>Restock</Button>
+        }
+
+        {soda > 0
+          ? <Button variant="contained" color="secondary" onClick={handleSoda}>Drink Pimple Soda</Button>
+          : <Button variant="contained" color="primary" onClick={() => setSoda(100)}>Refill</Button>
+        }
+
+        {pimple.length > 9
+          ? <Button variant="contained" color="primary" onClick={handleLaser}>Laser treatment</Button>
+          : ''
         }
       </div>
 
       <Face mood={mood} pimples={pimple} />
       <Foods
         pimples={pimple}
-        drinks={drinks}
+        soda={soda}
+        chocolate={chocolate}
       />
     </div>
   )

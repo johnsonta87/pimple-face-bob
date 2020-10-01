@@ -1,18 +1,27 @@
 import React from 'react'
 import './Foods.scss';
 
-
 export default function Foods(props) {
-  const drinkAmount = props.drinks;
+  const sodaAmount = props.soda;
+  const chocolate = props.chocolate.map(index => (
+    <div key={index} className="piece"></div>
+  ));
+
+  const rotateStyle = {
+    transform: `rotate(-45deg)`,
+  }
 
   return (
     <div className="foods-container">
+      <div className={`chocolate ${chocolate.length < 6 && 'eat'}`}>
+        {chocolate}
+      </div>
 
-      <div className="beer-glass">
+      <div className={`soda-glass ${sodaAmount < 100 && 'drink'}`}>
         <div className="glass"></div>
-        {drinkAmount ?
+        {sodaAmount ?
           <React.Fragment>
-            <div className="beer" style={{ height: drinkAmount + 'px' }}>
+            <div className="soda" style={{ height: sodaAmount + 'px' }}>
               <div className="foam"></div>
               <div className="foam"></div>
               <div className="foam"></div>
